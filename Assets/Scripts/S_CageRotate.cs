@@ -8,7 +8,7 @@ public class S_CageRotate : MonoBehaviour
     [SerializeField] InputAction RotateInput;
     [SerializeField] float RotateSpeed = 30.0f;
 
-    GameObject player;
+    S_GameMana mana;
 
     private void OnEnable()
     {
@@ -24,19 +24,12 @@ public class S_CageRotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        mana = FindObjectOfType<S_GameMana>();
     }
 
     void OnStopRotate()
     {
-        foreach (GameObject g in FindObjectsOfType<GameObject>())
-        {
-            if (g.GetComponent<Rigidbody>())
-            {
-                g.GetComponent<Rigidbody>().isKinematic = false;
-                g.transform.SetParent(null);
-            }
-        }
+        mana.ResumeObjects();
     }
 
     // Update is called once per frame
@@ -45,14 +38,7 @@ public class S_CageRotate : MonoBehaviour
         float val = RotateInput.ReadValue<float>();
         if (Mathf.Abs(val) > 0)
         {
-            foreach ( GameObject g in FindObjectsOfType<GameObject>())
-            {
-                if (g.GetComponent<Rigidbody>())
-                {
-                    g.transform.SetParent(transform);
-                    g.GetComponent<Rigidbody>().isKinematic = true;
-                }
-            }
+            mana.PauseObjects();
             transform.Rotate(0, 0, -val * RotateSpeed * Time.deltaTime);
         }
     }
