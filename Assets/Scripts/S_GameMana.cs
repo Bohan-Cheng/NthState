@@ -57,7 +57,7 @@ public class S_GameMana : MonoBehaviour
 
     void CheckWin()
     {
-        if (reachedGoal == 2)
+        if (BothMet() && reachedGoal == 2)
         {
             Invoke("ToNextMap", 2.0f);
         }
@@ -69,6 +69,18 @@ public class S_GameMana : MonoBehaviour
         {
             SceneManager.LoadScene(NextMap);
         }
+    }
+
+    bool BothMet()
+    {
+        foreach (S_Goal g in FindObjectsOfType<S_Goal>())
+        {
+            if (!g.IsMet)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
