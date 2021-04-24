@@ -2365,8 +2365,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Rotate the world and touch both goals to win the game.\n\r\nBlue plate
     on the ground can boost the player into air.\n\r\nChallenge yourself to find
-    the shortest way to achive goals.\n\r\nControls:\r\n\t\t\t\tUse 'A' and 'D' or
-    arrow keys  to move left and right.\r\n\r\n\t\t\t\t'Escape' key to pause."
+    the shortest way to achieve goals.\n\r\nControls:\r\n\t\t\t\tUse 'A' and 'D'
+    or arrow keys  to rotate left and right.\r\n\r\n\t\t\t\t'Escape' key to pause."
 --- !u!222 &1779387212
 CanvasRenderer:
   m_ObjectHideFlags: 0

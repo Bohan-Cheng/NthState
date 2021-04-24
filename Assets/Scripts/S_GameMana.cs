@@ -52,6 +52,7 @@ public class S_GameMana : MonoBehaviour
     public void RemoveGoal()
     {
         reachedGoal--;
+        CancelInvoke("ToNextMap");
     }
 
     void CheckWin()
